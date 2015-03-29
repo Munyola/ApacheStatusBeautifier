@@ -1,0 +1,17 @@
+{
+  "name": "ApacheStatusBeautifier",
+  "version": "0.1.0",
+  "authors": [
+    "sly <sergei.solomonov@gmail.com>"
+  ],
+  "description": "This extension suggests another UI for your Apache server-status page (with ExtendedStatus enabled) and some additional posibilities.",
+  "keywords": [
+    "apache",
+    "monitoring"
+  ],
+  "license": "",
+  "dependencies": {
+    "bootstrap": "~3.3.2",
+    "jquery.tablesorter": "~2.21.2"
+  }
+}

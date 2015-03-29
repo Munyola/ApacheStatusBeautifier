@@ -1,0 +1,53 @@
+body {
+	padding: 5px 15px;
+}
+
+body,
+pre,
+table {
+	font-size: small;
+}
+
+dl, hr {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+pre {
+    margin-top: 5px;
+    width: 525px;
+}
+
+label {
+    margin: 5px;
+}
+.stateTable > tbody > tr > td,
+.stateTable > tbody > tr > th,
+.stateTable > tfoot > tr > td,
+.stateTable > tfoot > tr > th,
+.stateTable > thead > tr > td,
+.stateTable > thead > tr > th {
+	padding: 1px;
+    line-height: 1;
+}
+
+.panel {
+    margin-bottom: 5px;
+}
+
+#stateTableBar {
+    padding: 5px;
+}
+#stateTableBar:before {
+    font-size: 12px;
+    font-weight: 700;
+    color: #959595;
+    letter-spacing: 1px;
+    content: "ACTIONS";
+}
+
+select.form-control {
+    width: 150px;
+    display: inline;
+    margin: 5px;
+}
