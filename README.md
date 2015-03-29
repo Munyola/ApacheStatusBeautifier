@@ -3,7 +3,7 @@ This Chrome extension suggests another UI for your Apache server-status page (wi
 
 ## Usage
 
-When you`ll visit apache server-status page, extension will automtically recognizes such pages. As a result you can transform such pages into another representation using addres bar icon. Usually you dont see ApacheStatusBeautifier icon, it appears only when you visit server-status page.
+When you`ll visit apache server-status page, extension will automtically recognizes such pages. As a result you can transform such pages into another representation using addres bar icon. Usually you dont see ApacheStatusBeautifier icon, it appears only when you visit server-status page. See [screenshot](https://github.com/sergei-solomonov/ApacheStatusBeautifier/blob/master/asb%20screenshot.png)
 
 ## Installation
 
