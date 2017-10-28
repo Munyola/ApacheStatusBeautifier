@@ -1,15 +1,17 @@
 # ApacheStatusBeautifier
-This Chrome extension suggests another UI for your Apache server-status page (with ExtendedStatus mode enabled) and some additional possibilities
+
+Tiny Chrome extension suggests another UI for your Apache server-status page and some additional possibilities.
 
 ## Usage
 
-When you`ll visit apache server-status page, extension will automtically recognizes such pages. As a result you can transform such pages into another representation using addres bar icon. Usually you dont see ApacheStatusBeautifier icon, it appears only when you visit server-status page. See [screenshot](https://github.com/sergei-solomonov/ApacheStatusBeautifier/blob/master/asb%20screenshot.png)
+Extension automatically recognizes apache server status page and transform it into more informative representation.
 
-## Installation
+![](screenshot.png)
 
-How to load unpacked chrome extension you can read [here](https://developer.chrome.com/apps/first_app#five)
+# Known Limitations:
 
-## Development installation
+* `ExtendedStatus` mode must be enabled;
 
-    cd ApacheStatusBeautifier
-    bower install
+* extension recognizes only default url `/server-status`;
+
+* works correctly for single node instance.

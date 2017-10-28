@@ -1,0 +1,24 @@
+{
+  "name": "ApacheStatusBeautifier",
+  "version": "0.2.0",
+  "description": "This Chrome extension suggests another UI for your Apache server-status page (with ExtendedStatus mode enabled) and some additional possibilities",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sly-x86/ApacheStatusBeautifier.git"
+  },
+  "keywords": [
+    "apache",
+    "monitoring"
+  ],
+  "author": "sly <sergei.solomonov@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sly-x86/ApacheStatusBeautifier/issues"
+  },
+  "homepage": "https://github.com/sly-x86/ApacheStatusBeautifier#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "tablesorter": "^2.21.5"
+  }
+}
