@@ -3,7 +3,7 @@
 
   "name": "Apache status beautifier",
   "description": "This extension suggests another UI for your Apache server-status page and some additional possibilities.",
-  "version": "0.2.0",
+  "version": "0.3.0",
 
   "page_action": {
     "default_icon": "icon/icon.png",

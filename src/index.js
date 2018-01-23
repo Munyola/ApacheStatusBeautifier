@@ -3,6 +3,7 @@ var asbInited = asbInited || false;
 this.asb = (() => {
 
     let vars = {
+        scoreboard: null,
         stateTable: null,
         server: {
             version: null,
@@ -24,7 +25,7 @@ this.asb = (() => {
         },
         selectTimeoutId: null,
         filter: {
-            hideInactive: false
+            hideInactive: true
         }
     };
 
@@ -32,24 +33,21 @@ this.asb = (() => {
         getElementByText,
         getJsonFromDomObject,
         normalizeStateTable
-    };
-
-    const actions = {
+    },
+    actions = {
         refreshStateTable,
         refreshStateTableOnce,
         refreshStateTableTimeout,
         hideInactive,
         hideInactiveFromTable
-    };
-
-    const stateTableBar = {
+    },
+    stateTableBar = {
         createRefreshOnceButton,
         createResreshSelect,
         createHideInactiveCheckbox,
         addStateTableBar
-    };
-
-    const parse = {
+    },
+    parse = {
         getServerDescriptionJson,
         getServerStatistics
     };
@@ -65,6 +63,7 @@ this.asb = (() => {
                 return allTags[i];
             }
         }
+
         return false;
     }
 
@@ -84,6 +83,7 @@ this.asb = (() => {
                 }
             }
         }
+
         return res;
     }
 
@@ -105,19 +105,17 @@ this.asb = (() => {
     {
         let url = window.location.pathname;
         $.get(url, (data) => {
-            let preTag = document.querySelectorAll('pre');
-            if (preTag[0]) {
-                document.body.removeChild(preTag[0]);
-            }
             let newDoc = document.createElement('document');
             newDoc.innerHTML = data;
+
+            vars.scoreboard.innerHTML = newDoc.querySelector('dl + pre').innerHTML;
+
             let newTable = utils.getElementByText('table', 'Srv', newDoc);
             utils.normalizeStateTable(newTable);
             vars.stateTable.tBodies[0].innerHTML = newTable.tBodies[0].innerHTML;
             if (vars.filter['hideInactive']) {
                 actions.hideInactiveFromTable(vars.stateTable);
             }
-            $(vars.stateTable).trigger('update');
             delete newDoc;
         });
     }
@@ -172,14 +170,16 @@ this.asb = (() => {
                 }
             }
         }
+        $(table).trigger('update');
     }
 
     function createRefreshOnceButton()
     {
         let button = document.createElement('button');
         button.className = 'btn btn-default';
-        button.innerHTML = 'Refresh table once';
+        button.innerHTML = 'Refresh once';
         button.addEventListener('click', actions.refreshStateTableOnce);
+
         return button;
     }
 
@@ -204,6 +204,7 @@ this.asb = (() => {
             }
             actions.refreshStateTableTimeout(timeout);
         });
+
         return selectList;
     }
 
@@ -212,9 +213,14 @@ this.asb = (() => {
         let label = document.createElement('label'),
             input = document.createElement('input');
         input.type = 'checkbox';
+        input.checked = vars.filter.hideInactive;
+        if (true === vars.filter.hideInactive) {
+            input.setAttribute('checked', 'checked');
+        }
         label.appendChild(input);
         label.innerHTML += ' Hide inactive processes';
         label.addEventListener('click', actions.hideInactive)
+
         return label;
     }
 
@@ -267,6 +273,7 @@ this.asb = (() => {
                 res['requestsNow'] = dtVal;
             }
         }
+
         return res;
     }
 
@@ -299,11 +306,13 @@ this.asb = (() => {
 
     function init()
     {
+        let dlServerDescription = utils.getElementByText('dl', 'Server Version'),
+            dlServerStatistics = utils.getElementByText('dl', 'Current Time');
+
         multipleInitPrevention();
 
-        let dlServerDescription = utils.getElementByText('dl', 'Server Version');
+        vars.scoreboard = document.querySelector('dl + pre');
         vars.server = parse.getServerDescriptionJson(dlServerDescription);
-        let dlServerStatistics = utils.getElementByText('dl', 'Current Time');
         vars.statistics = parse.getServerStatistics(dlServerStatistics);
 
         initEventMode();

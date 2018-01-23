@@ -1,6 +1,6 @@
 {
   "name": "ApacheStatusBeautifier",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "This Chrome extension suggests another UI for your Apache server-status page (with ExtendedStatus mode enabled) and some additional possibilities",
   "main": "src/index.js",
   "repository": {
